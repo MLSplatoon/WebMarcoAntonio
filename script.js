@@ -1,0 +1,43 @@
+const phrases = ["Programador", "Editor de Video", "Músico"];
+let phraseIndex = 0;
+let charIndex = 0;
+const typingSpeed = 80;
+const deletingSpeed = 50;
+const delayBetweenPhrases = 5000; // Tiempo que dura antes de cambiar a la siguiente
+
+function typeWriter() {
+    const typewriterText = document.querySelector('.typewriter-text');
+    const currentPhrase = phrases[phraseIndex];
+    
+    if (charIndex < currentPhrase.length) {
+        typewriterText.innerHTML += currentPhrase.charAt(charIndex);
+        charIndex++;
+        setTimeout(typeWriter, typingSpeed);
+    } else {
+        setTimeout(deleteText, delayBetweenPhrases);
+    }
+}
+
+function deleteText() {
+    const typewriterText = document.querySelector('.typewriter-text');
+    const currentPhrase = phrases[phraseIndex];
+    
+    if (charIndex > 0) {
+        typewriterText.innerHTML = currentPhrase.substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(deleteText, deletingSpeed);
+    } else {
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        setTimeout(typeWriter, typingSpeed);
+    }
+}
+
+// Iniciar la Function
+window.onload = function() {
+    setTimeout(typeWriter, typingSpeed);
+};
+
+
+//Hecho por MLSplatoon
+//I spent 20 minutes making it work and I finally did it :)
+
