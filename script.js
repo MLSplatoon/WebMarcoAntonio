@@ -1,9 +1,9 @@
-const phrases = ["Programador", "Editor de Video", "Músico"];
+const phrases = ["Programmer", "Video Editor", "ESO Student"];
 let phraseIndex = 0;
 let charIndex = 0;
 const typingSpeed = 80;
 const deletingSpeed = 50;
-const delayBetweenPhrases = 5000; // Tiempo que dura antes de cambiar a la siguiente
+const delayBetweenPhrases = 5000; // ! Tiempo que dura antes de cambiar a la siguiente
 
 function typeWriter() {
     const typewriterText = document.querySelector('.typewriter-text');
@@ -17,7 +17,7 @@ function typeWriter() {
         setTimeout(deleteText, delayBetweenPhrases);
     }
 }
-
+// ! Borrar el texto
 function deleteText() {
     const typewriterText = document.querySelector('.typewriter-text');
     const currentPhrase = phrases[phraseIndex];
@@ -32,12 +32,12 @@ function deleteText() {
     }
 }
 
-// Iniciar la Function
+// * Iniciar la Function
 window.onload = function() {
     setTimeout(typeWriter, typingSpeed);
 };
 
 
-//Hecho por MLSplatoon
-//I spent 20 minutes making it work and I finally did it :)
+// ! Hecho por MA_Dev
+// * I spent 20 minutes making it work and I finally did it :)
 
